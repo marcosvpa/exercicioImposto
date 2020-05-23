@@ -2,6 +2,8 @@ package pessoa;
 
 public class pessoaFisica extends pessoa {
 	Double healthCost;
+	double taxToPay = 0;
+
 
 	//Creating constructors
 	public pessoaFisica() {
@@ -25,17 +27,27 @@ public class pessoaFisica extends pessoa {
 		this.healthCost = healthCost;
 	}
 	
-	//Overrider functions
-	
-	@Override
-	public double taxeCal() {
-		if (anualIncome >= 20000) {
-			return (anualIncome * 0.25)-(healthCost - 0.50);
-		} else {
-			return (anualIncome * 0.15)-(healthCost - 0.50);
-		}
+	public double getTaxToPay() {
+		return taxToPay;
+	}
+
+	public void setTaxToPay(double taxToPay) {
+		this.taxToPay = taxToPay;
 	}
 	
-	
+	//Overrider functions
+
+	@Override
+	public double taxeCal() {
+	if (anualIncome >= 20000) {
+		taxToPay = (anualIncome * 0.25)-(healthCost * 0.50);
+		return taxToPay;
+	} else {
+		taxToPay = (anualIncome * 0.15)-(healthCost * 0.50);
+		return taxToPay;
+	}
+}
+
+
 	
 }

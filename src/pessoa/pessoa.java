@@ -39,6 +39,10 @@ public abstract class pessoa {
 	public double taxeCal() {
 		return 0;
 	}
+
+	public double getTaxToPay() {
+		return 0;
+	};
 	
 
 	
